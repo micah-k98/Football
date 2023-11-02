@@ -57,9 +57,24 @@ function populateTeam()
 
 function displayOutput(selectedTeam)
 {
-    document.getElementById("code").textContent = selectedTeam.code;
-    document.getElementById("footballTeam").textContent = selectedTeam.name;
-    document.getElementById("plays").textContent = selectedTeam.plays;
+    if (selectedTeam == undefined)
+    {
+        document.getElementById("code").textContent = "";
+        document.getElementById("footballTeam").textContent = "";
+        document.getElementById("plays").textContent = "";
+        document.getElementById("teamName").textContent = "";
+        document.getElementById("state").textContent = "";
+        document.getElementById("message").hidden = true;
+    }
+    else
+    {
+        document.getElementById("code").textContent = selectedTeam.code;
+        document.getElementById("footballTeam").textContent = selectedTeam.name;
+        document.getElementById("plays").textContent = selectedTeam.plays;
+        document.getElementById("teamName").textContent = selectedTeam.name;
+        document.getElementById("state").textContent = selectedTeam.plays;
+        document.getElementById("message").hidden = false;
+    }
 }
 
 
