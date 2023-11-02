@@ -12,10 +12,32 @@ function getAllFootballTeams()
 
 window.onload = function()
 {
-    const selectButton = document.getElementById("selectButoon");
-    // selectButton.onclick = selectButtonClicked;
+    const selectButton = document.getElementById("selectButton");
+    selectButton.onclick = selectButtonClicked;
 
     populateTeam();
+}
+
+function selectButtonClicked(event)
+{
+    event.preventDefault();
+
+    // get the selected team code
+    const teamCode = document.getElementById("footballTeamList").value;
+
+    const selectedTeam = getSelectedTeam(teamCode);
+
+    displayOutput(selectedTeam);
+}
+
+function getSelectedTeam(teamCode)
+{
+    const teamList = getAllFootballTeams();
+
+    for (let team of teamList)
+    {
+        if (team.code == teamCode) return team;
+    }
 }
 
 function populateTeam()
@@ -29,3 +51,14 @@ function populateTeam()
         footballTeamList.appendChild(option);
     }
 }
+
+function displayOutput(selectedTeam)
+{
+    document.getElementById("code").textContent = selectedTeam.code;
+    document.getElementById("footballTeam").textContent = selectedTeam.name;
+    document.getElementById("plays").textContent = selectedTeam.plays;
+}
+
+
+
+
