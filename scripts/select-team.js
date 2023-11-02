@@ -25,6 +25,8 @@ function selectButtonClicked(event)
     // get the selected team code
     const teamCode = document.getElementById("footballTeamList").value;
 
+    // compare the selected team code with the list of teams and get the team name
+    // selectedTeam will be an array
     const selectedTeam = getSelectedTeam(teamCode);
 
     displayOutput(selectedTeam);
@@ -32,6 +34,7 @@ function selectButtonClicked(event)
 
 function getSelectedTeam(teamCode)
 {
+    // get the array/values for the list of teams
     const teamList = getAllFootballTeams();
 
     for (let team of teamList)
@@ -42,10 +45,10 @@ function getSelectedTeam(teamCode)
 
 function populateTeam()
 {
-    const footballTeamList = document.getElementById("footballTeamList");
-    const footballTeam = getAllFootballTeams();
+    const footballTeamList = document.getElementById("footballTeamList"); 
+    const teamList = getAllFootballTeams();
     
-    for (let team of footballTeam)
+    for (let team of teamList)
     {
         const option = new Option(team.name, team.code);
         footballTeamList.appendChild(option);
