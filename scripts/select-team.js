@@ -12,9 +12,17 @@ function getAllFootballTeams()
 
 window.onload = function()
 {
-    const selectButton = document.getElementById("selectButton");
-    selectButton.onclick = selectButtonClicked;
+    // trigger the changes using onclick event
+    // const selectButton = document.getElementById("selectButton");
+    // selectButton.onclick = selectButtonClicked;
 
+    // or use the onsubmit event for the form
+    const theForm = document.getElementById("theForm");
+    theForm.onsubmit = selectButtonClicked;
+
+    // or the onchange event for select element
+    // document.getElementById("footballTeamList").onchange = selectButtonClicked;
+    
     populateTeam();
 }
 
